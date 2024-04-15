@@ -1,0 +1,22 @@
+services:
+  mower-backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: mower-backend
+    container_name: mower-backend
+    links:
+      - "mower-db:mower-db"
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=int
+  mower-db:
+    image: postgres
+    container_name: mower-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres

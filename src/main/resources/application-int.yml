@@ -1,0 +1,3 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://mower-db:5432/postgres
